@@ -60,20 +60,20 @@ class _swiperState extends State<swiper> {
               child: Swiper(
                   itemCount: planets.length,
                   itemWidth: MediaQuery.of(context).size.width - 2 * 64,
-                  layout: SwiperLayout.CUSTOM,
+                  layout: SwiperLayout.STACK,
                   pagination: SwiperPagination(builder: DotSwiperPaginationBuilder()),
-                  customLayoutOption: new CustomLayoutOption(
-      startIndex: -1,
-      stateCount: 3
-  ).addRotate([
-    -45.0/180,
-    0.0,
-    45.0/180
-  ]).addTranslate([
-    new Offset(-370.0, -40.0),
-    new Offset(0.0, 0.0),
-    new Offset(370.0, -40.0)
-  ]),
+        //                 customLayoutOption: new CustomLayoutOption(
+        //     startIndex: -1,
+        //     stateCount: 3
+        // ).addRotate([
+        //   -45.0/180,
+        //   0.0,
+        //   45.0/180
+        // ]).addTranslate([
+        //   new Offset(-370.0, -40.0),
+        //   new Offset(0.0, 0.0),
+        //   new Offset(370.0, -40.0)
+        // ]),
                   itemBuilder: (context, index) {
                     return Stack(
                       children: <Widget>[
@@ -99,23 +99,27 @@ class _swiperState extends State<swiper> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                 SizedBox(height: 100
-                                ,width: 100,),
-                                Text(planets[index].name,
+                                ,width: 240,),
+                                Center(
+                                  child: Text(planets[index].name,
+                                              style: TextStyle(
+                                                fontFamily: 'Avenir',
+                                                fontSize: 44,
+                                                color: const Color(0xff47455f),
+                                                fontWeight: FontWeight.w900,),
+                                                textAlign: TextAlign.center),
+                                ),
+                                              Center(
+                                                child: Text( 'Solar System',
                                             style: TextStyle(
-                                              fontFamily: 'Avenir',
-                                              fontSize: 44,
-                                              color: const Color(0xff47455f),
-                                              fontWeight: FontWeight.w900,),
-                                              textAlign: TextAlign.left),
-                                              Text( 'Solar System',
-                                            style: TextStyle(
-                                              fontFamily: 'Avenir',
-                                              fontSize: 23,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500,
+                                                fontFamily: 'Avenir',
+                                                fontSize: 23,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500,
                                             ),
                                             textAlign: TextAlign.left,
                                           ),
+                                              ),
                                           SizedBox(height:100,
                                           width: 100,),
                               ]),
